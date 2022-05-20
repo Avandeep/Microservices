@@ -1,0 +1,11 @@
+Factors:-
+
+URI and Request Parameter versioning:- actual polluting the URI space 
+(creating URI and new request parameters), cache them because it is part of URI;
+can execute on normal browser; here, documentation is little easy.
+
+Media type and Custom headers versioning:- not polluting the URI space, http headers are
+never intended for versioning, use headers to differentiate between requests,
+caching is never come into picture, caching is becoming difficult here; cannot execute on
+normal browser; need plug-in to run; here, documentation might be difficult.
+
