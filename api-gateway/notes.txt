@@ -1,0 +1,58 @@
+Hundred of micro services have a lot of common features authentication, authorization, 
+logging rate limiting.
+
+Where do you implement all these common features?
+
+That's one of the typical questions in a micro series architecture.
+
+And the typical solution is to go for an API gateway in the older versions of 
+Spring Cloud, the popular API gateway to use was Zuul.
+
+Since Zuul one is no longer supported by Netflix, Sprinklered has moved on and 
+now the recommended option as an API gateway spring cloud gateway.
+
+Some of these URLs may be complex to write by hand:
+
+Refer back to here if you have problems in the next steps.
+
+
+
+Initial
+
+- http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/USD/to/INR
+
+- http://localhost:8765/CURRENCY-CONVERSION/currency-conversion/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/CURRENCY-CONVERSION/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+
+
+Lower Case
+
+- http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
+
+- http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/currency-conversion/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+
+
+Custom Routes
+
+- http://localhost:8765/currency-exchange/from/USD/to/INR
+
+- http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+- http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10
+
+
+Resilience4j is a lightweight, easy-to-use fault tolerant library inspired by 
+Netflix Hystrix. 
+
+In the previous versions of Spring Boot and Spring Cloud, Netflix Hystrix was 
+the recommended circuit breaker framework.
+
+However, with the evolution of Java 8 and functional programming, 
+Resilience4j has become the recommended framework.
