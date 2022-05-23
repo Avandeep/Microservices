@@ -1,0 +1,386 @@
+1) The annotation at SpringBootApplication indicates that this is a Spring context file.
+
+That's number one.
+
+Number two, it enables something called auto configuration.
+
+Number three, it enables something called component scan.
+
+Component scan is one of the important features of Spring where it would start automatically scanning
+
+these classes in this package.
+
+And this sub package for any beans.
+
+So we have added in an annotation at restController.
+
+This is one of the annotations which is scanned for it.
+
+So this would be registered as a component. So the bookController would be registered as a bean and it would be managed
+
+by the Spring framework.
+
+There are three things that are essentially done by at Spring Boot application.
+
+It indicates that this is a Spring context.
+
+The second thing is the fact that this enables auto configuration.
+
+The third thing is that it enables automatic scan of this specific package.y
+
+2) 
+Most important feature of Spring Framework is Dependency Injection. 
+At the core of all Spring Modules is Dependency Injection or IOC Inversion of Control.
+
+when DI or IOC is used properly, we can develop loosely coupled applications. 
+And loosely coupled applications can be easily unit tested.
+
+Spring framework takes control of all the beans and their dependencies.
+Spring framework is all about defining your beans, putting
+
+your at component, putting your at service and things like that and also defining your dependencies
+
+at auto wired and things like that and also defining how to find your beans.
+
+Components scan for example.
+
+Spring framework also solves a few other problems like duplication and that's basically plumbing
+
+code.
+
+The other thing with Spring framework solves was providing good integration with other frameworks. So Spring
+
+had good integration with Hibernate ORM, JUnit and Mockito.
+
+What else does Spring Framework solve?
+Problem 1 : Duplication/Plumbing Code
+
+Spring Modules
+
+Spring JDBC
+Spring MVC
+Spring AOP
+Spring ORM
+Spring JMS
+Spring Test
+
+im of these abstractions is to
+
+Reduce Boilerplate Code/ Reduce Duplication
+Promote Decoupling/ Increase Unit Testablity
+For example, you need much less code to use a JDBCTemplate or a JMSTemplate compared to traditional JDBC or JMS.
+
+Problem 2 : Good Integration with Other Frameworks.
+Great thing about Spring Framework is that it does not try to solve problems which are already solved. All that it does is to provide a great integration with frameworks which provide great solutions.
+
+Hibernate for ORM
+iBatis for Object Mapping
+JUnit & Mockito for Unit Testing
+
+3)Spring MVC is concerned with developing web applications. Spring MVC provides a simple way of developing
+
+web applications.
+
+Spring MVC Framework provides decoupled way of developing web applications. With simple concepts like 
+Dispatcher Servlet, ModelAndView and View Resolver, it makes it easy to develop web applications.
+
+One of the great thing about Spring MVC is the separation of concerns. Dispatchers servlet is concerned
+
+with just the basic front controller part. There is a model and view.
+
+There is a view resolver which is concerned just with resolving a view name to the physical view.
+
+With this kind of simple concepts, Spring MVC makes it very very easy to develop your web applications
+
+as well as your RESTful services. Whether you are developing web applications or REST services with
+
+Spring Boot, internally you are using Spring MVC framework. That's the Spring web MVC framework.
+
+Spring based applications have a lot of configuration.
+
+When we use Spring MVC, we need to configure component scan, dispatcher servlet, a view resolver, 
+web jars(for delivering static content) among other things.
+
+When we use Hibernate/JPA, we would need to configure a datasource, an entity manager factory, a transaction manager among a host of other things.
+
+4) Spring Boot
+
+The auto configuration
+
+part. It looks at frameworks which are available on the classpath and provide automatic configuration. This
+
+starter projects are all built around well known patterns.
+
+We will talk about Spring Boot starter web and Spring Boot starter JPA in the next step.
+
+Other than starters the important goals of Spring Boot is to provide a few monitoring features.
+
+So it also provides starters like Spring Boot starter actuator which is used for monitoring.
+
+So it enables monitoring for you application and also it has starters to pick different embedded servlet
+
+containers. And it has starters for logging so if you want to use log4J, there's a separate logging
+
+for it as well.
+
+So JPA defines how ORM applications or ORM frameworks
+
+should work. ORM is object relational mapping. Let's now add in a dependency on Spring Boot starter JPA.
+
+Spring Boot is now one of the most popular frameworks to develop micro services. The idea behind the whole set of these steps is to give you a flavor of Spring Boot in
+
+a wide variety of scenarios.
+
+Spring Boot looks at a) Frameworks available on the CLASSPATH b) Existing configuration for the application. Based on these, Spring Boot provides basic
+configuration needed to configure the application with these frameworks. This is called Auto Configuration.
+
+Dependencies can be classified into:
+
+Spring - core, beans, context, aop
+Web MVC - (Spring MVC)
+Jackson - for JSON Binding
+Validation - Hibernate Validator, Validation API
+Embedded Servlet Container - Tomcat
+Logging - logback, slf4j
+Any typical web application would use all these dependencies. Spring Boot Starter Web comes pre packaged with these. 
+As a developer, I would not need to worry about either these dependencies or their compatible versions.
+
+Spring Boot Starters
+
+spring-boot-starter-web-services - SOAP Web Services
+spring-boot-starter-web - Web & RESTful applications
+spring-boot-starter-test - Unit testing and Integration Testing
+spring-boot-starter-jdbc - Traditional JDBC
+spring-boot-starter-hateoas - Add HATEOAS features to your services
+spring-boot-starter-security - Authentication and Authorization using Spring Security
+spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+spring-boot-starter-cache - Enabling Spring Framework’s caching support
+spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
+spring-boot-starter-actuator - To use advanced features like monitoring & tracing to your application out of the box
+spring-boot-starter-undertow, spring-boot-starter-jetty, spring-boot-starter-tomcat - To pick your specific choice of Embedded Servlet Container
+spring-boot-starter-logging - For Logging using logback
+spring-boot-starter-log4j2 - Logging using Log4j2
+
+Spring Boot Actuator
+Spring Boot starter actuator actually exposes a lot of REST services and these services are compliant with the standard called HAL standard. And we would use a hal browser so that we can browse through the data which is provided by these services.Spring Boot Actuator exposes a lot of data - application info, metrics, dump, beans, env, config properties, audit events, heap dump, loggers, trace, health mappings and auto config. Actuator provides more metadata about your application.
+
+applications.properties and type in management.endpoint.web.exposure.include=*. What we are doing in here is, we are enabling the web exposure.
+
+So, the exposure over HTTP of all the management endpoints.
+
+Spring Boot Developer Tools
+Why do you need to restart your server for every java and jsp change?
+Spring Boot Developer Tools enables dynamic reloading of modified changes.
+
+You can see that this actually started in two seconds.
+
+The change was picked up in two seconds. I'll stop the application and restart it.
+
+You would see that actually the typical restart when I do a fresh restart on spring boot is about 8 to
+
+10 seconds.
+
+So one of the things that Spring Boot does, Spring Boot dev tools does very effectively,
+
+is it knows that everything in Maven dependencies will not change at all. So it will not load things which
+
+are dependent on these again. It will only load those beans which are…which are the application beans
+
+again. That's why it takes lesser time
+
+when you make a change. When you restart the server, everything including whatever is in here is loaded
+
+but when you …when you make a change in the application only that specific things which are application
+
+related are reloaded again. And that's the reason why you see that it only takes 2 seconds and imagine
+
+the amount of productivity you would gain with this.
+
+So this is almost 10 seconds saved for every change you make.
+
+
+JDBC
+
+JDBC is basically Java database connectivity .
+
+And the way it did it was through things like statement, prepared statement, result set etc.
+
+So what we do is we write a query. So we rewrite a query and then we had to create a statement or a prepared
+
+statement for it and set the parameters into the query. 
+
+And once the query is executed, if it’s a select query then we would need to get a result set and we would
+
+need to map manually.
+
+it was a little complex.
+
+Spring JDBC
+
+Instead of using low level things like statement, prepared statement
+
+other things, Spring JDBC provide a JDBC database template.
+
+it made mapping parameters to query very easy.
+
+And also it introduced a few simple concepts like a rowmappers. By default
+
+If your names match then you don't really need to create a mapper at all.
+
+Then you can use something called bean property row mapper.
+
+myBatis
+
+myBatis provides a simple XML or annotation based configuration.
+
+So whatever mapping that we did earlier from your parameters, parameters to queries and taking values from
+
+the result sees and putting them to beans, what we can do with myBatis is you can do the same stuff using
+
+XML or simple annotations.
+
+ In JDBC or Spring JDBC what we used to do with we use to write queries like
+
+this.
+
+So we used to put question marks and we would use to replace the values.
+
+But what myBatis did is it provided a simple mapping framework.
+
+So instead of a question mark I would say hash user. And what is user? User is the name of the attribute
+
+in the bean.
+
+with JDBC, Spring JDBC and also myBatis. The fundamental thing for all these three approaches was the
+
+fact that they are still based on queries.
+
+We still write a lot of queries.
+
+The problem with queries is when the relationships between tables change then you have to modify
+
+all your queries. I have worked in lot of applications where there were a lot of big big queries which were
+
+written. Like, I have worked in applications where there were queries of hundred two hundred lines of code and
+
+understanding these and maintaining these is a really tough job. You need to really have a great understanding
+
+of how things are done in the database to be able to write these queries.
+
+And that's the real problem.
+
+The problem was the queries were becoming so complex that it was difficult to really maintain them.
+
+And whenever there were changes in the relationships between tables it was really becoming difficult
+
+to maintain these queries. That’s the world where JPA stepped in.
+
+JPA
+
+With JPA you’d be able to define mappings between your classes and the tables using things like
+
+entities, relationships. 
+
+JPA also has this features of criteria API and JPQL which provides additional ways of finding data
+
+from your database.
+
+JPQL is similar to SQL.
+
+However, you would be using entities instead of tables in JPQL and criteria API represents a
+
+way you can write JPL using Java APIs. 
+
+We would want to use an inheritance mapping. The strategy is one table. All the subclasses of employee
+
+are stored to one table and we are also saying, how do we distinguish is using the employee type.
+
+We saw how JPA helps us to map object to tables.
+
+We looked at how we can map specific attributes, specific fields to tale column.
+
+We looked at examples of how to map relationships.
+
+And we looked at how to map inheritance relationships between objects as well.
+
+PA is a interface
+
+JPA is a specification. Hibernate implements JPA. It's like you have an interface and you have classes
+
+implementing that interface. Similar to that JPA is an interface and hibernate is an implementation.
+
+JPA defines all the annotations.
+
+So these are the different annotations which you can use.
+
+These are the different things you can use to define criteria queries.
+
+These are the different things that you can use to define attributes.
+
+That's what JPA defines and hibernate provides implementations to
+
+all these concepts. Once you map an object, once you put all the annotations on a class, hibernate would
+
+be able to read them, understand them and would be able to save your entities to the table.
+
+Hibernate is one of the most popular ORM frameworks. ORM is object relational mapping and JPA
+
+standardizes ORM.
+
+Only those things which are in the persistence context are tracked by the entity manager.
+
+h2
+
+be able to
+
+save the data from the application.
+
+This would mean that there is a lot of set up involved. Other kind of databases, called in-memory databases.
+
+These databases are directly created inside the application.
+
+The Schemas are defined, the tables are created.
+
+The data is populated.
+
+And once the application stops, the entire database is destroyed and removed from memory.
+
+The great thing about these databases is you don't really need to maintain them.
+
+I don't really need to install manually. I don't need to install the tables in there and all that
+
+kind of stuff.
+
+we used a simple user repository instead of the user
+
+dao service. The user repository kind of acts as a shortcut to manage your entities. Instead of writing a
+
+lot of dao services,
+
+with very similar logic, so you would have the same insert, persist logic, merge logic, find and all that kind of
+
+stuff.
+
+consider the schenario when I'm inserting, I am retrieving data, I’m deleting updating, updating… and
+
+all that kind of stuff.
+
+So if I have a lot of methods here then those kind of methods are repeated again and again for all the
+
+different entities. If I have 15 entities I would have 15 dao services which would be having very similar
+
+logic. So irrespective of the entity, you have to interact with the entity manager to manage it.
+
+So you have to either call persist method or you would have to call something like a merge method or you would
+
+need to call a remove method.
+
+Or you’d have to call one of the variations of the find method. Spring data wants to solve that problem.
+
+Instead of using that kind of logic spring data JPA provides a common abstraction called JPA repository.
+
+If you extend the JPA repository and provide the entity you'd want to manage, you'd get all the different
+
+methods that are provided. A varied range of methods that are provided for doing all kind of operations
+
+with your entities.
