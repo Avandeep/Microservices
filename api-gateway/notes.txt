@@ -56,3 +56,114 @@ the recommended circuit breaker framework.
 
 However, with the evolution of Java 8 and functional programming, 
 Resilience4j has become the recommended framework.
+
+It will log the request and send to the microservice
+
+Sending the rquest to api-gateway instead of sending directly to microservice
+
+You could see that the content of the request is printed on this API gateway server you can see that
+
+the request is printed.
+
+The request URI is also being printed in here.
+
+we would want to be able to do is to send the request from the currency conversion service to 
+the currency exchange service.
+
+I would want them to be routed through the API gateway.
+
+we are calling the currency calculation service through feign what's happening this is being
+
+routed through the API gateway the service call is directly not going to the currency exchange service.
+
+It is being routed through the gateway the gateway is executing the filter which is the logging
+
+filter.
+
+And invoking the currency exchange service what we're doing now is intercepting the call between the currency
+
+calculation service and the currency exchange service.
+
+What we are doing in here is we're trying to make every call to the micro services go through the Zuul
+
+API Gateway.
+
+This would ensure that we have logs about everything if we want analytics we can do that implement security
+
+you can implement them as part of your API gateway in this step and the previous steps we talked about
+
+API gateways we implemented a logging filter with an API gateway and ensure that all the calls go through
+
+the API gateway.
+
+If you want to solve a problem and if you want to debug a problem through this you would need a centralized
+
+kind of information.
+
+And that's where this distributed tracing comes into picture.
+
+There are a variety of options that are present for distributed tracing.
+
+What we'll do in this section is to use something called Spring cloud sleuth with Zipkin.
+
+So S L E U T H spring cloud sleuth would assign a unique ID to a request so that I can trace it
+
+across.
+
+Components zipkin is what we call a distributed tracing system.
+
+all these services we would put it in MQ we would use rabbitMQ.
+
+And we would send it out to the zipkin server where it is consolidated.
+
+it's assigning a id to the request and we can use that id to trace the request across multiple components.
+
+We are able to see the same request, which is present on the API gateway server, ZUUL API Gateway Server.
+
+The second place we were able to see it is inside the Currency Exchange Service and also the Currency
+
+Conversion Service.
+
+one of the problems that you would see is that this log is distributed in multiple places. it's
+
+in multiple consoles, traversing
+
+through this is a very very big pain
+
+and that's where the need for a distributed tracing server comes in.
+
+What we want to do is, we'd want to centralize all this log at the one place. We'd want to send all
+
+these messages to one place, and we would want to be able to see all this stuff in a centralized dashboard
+
+and that's where Zipkin comes in.
+
+if you are finding it difficult to run all four applications at the same time, I would recommend you
+
+to remove the dependencies on spring-boot-actuator and the dev tools.
+
+So, the actuator and the dev tools dependencies, you can remove them from all the applications, and you can
+
+run them.
+
+This would, kind of, reduce the load on the application as well.
+
+That would probably make it easy for you to run the applications in parallel.
+
+We will use rabbitMQ.
+
+Whenever there is a log message the micro service would put it on the queue and zipkin distributed tracing
+
+server would be picking it up from the queue.
+
+ it basically that if this has a lot of logic and because of any of this the reason this method is
+
+an exception we're configuring a fallback method.
+
+This fallback method is getting invoked and rewritten the values which are configured in here.
+
+if one micro service fails all the other micro services which are dependent on that start feeling
+
+and there is a ripple effect because of that.
+
+And we can prevent that by providing fault tolerance.
